@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Food Recommendations - Diabetes-Friendly Food App</title>
+</head>
+
+<style>
+    body {
+        background-image: url('Food2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Diabetes-Friendly Food App</h1>
+        <nav>
+            <ul>
+                <li><a href="login.html">Log Out</a></li>
+                <li><a href="home.html">Home</a></li>
+                <!-- <li><a href="#recommendations">Food Recommendations</a></li> -->
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="recommendations" class="food-recommendations">
+            <h2>Food Recommendations</h2>
+            <p>Discover a variety of delicious and diabetes-friendly food options to include in your meals.</p>
+            
+            <form id="userPreferencesForm">
+                <label for="dietaryPreference">Select Dietary Preference:</label>
+                <select id="dietaryPreference" name="dietaryPreference" class="food-select">
+                    <option value="balanced">Balanced</option>
+                    <option value="low-sugar">Low sugar</option>
+                    <option value="low-carbs">Low carbs</option>
+                    <option value="vegetarian">Vegetarian</option>
+                </select>
+                <button class="food-button" type="button" onclick="getRecommendations()">Recommend</button>
+            </form>
+            
+            <div id="recommendationResults">
+                <!-- Recommendations will be displayed here -->
+            </div>
+            
+        </section>
+        
+        <!-- <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>We are dedicated to helping people with diabetes lead a healthier life through informed food choices.</p>
+        </section> -->
+    </main>
+    <footer>
+        <p>&copy; 2023 Diabetes-Friendly Food App</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('userPreferencesForm');
+        const recommendationResults = document.getElementById('recommendationResults');
+    
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Get selected dietary preference from the form
+            const selectedPreference = form.dietaryPreference.value;
+    
+            // Perform recommendation logic based on the selected preference
+            
+            const recommendations = getRecommendations(selectedPreference);
+    
+            // Display the recommendations
+            displayRecommendations(recommendations);
+        });
+    
+        // Placeholder function for recommendation logic
+        function getRecommendations() {
+    const selectedPreference = document.getElementById('dietaryPreference').value;
+
+    fetch('/content-based-recommendation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ food_name: selectedPreference }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayRecommendations(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function displayRecommendations(recommendations) {
+    const recommendationResults = document.getElementById('recommendationResults');
+    recommendationResults.innerHTML = '<h3>Recommended Foods:</h3><ul>';
+    
+    recommendations.forEach(recommendation => {
+        recommendationResults.innerHTML += '<li>' + recommendation + '</li>';
+    });
+
+    recommendationResults.innerHTML += '</ul>';
+}
+    </script>
+    
+    <script src="script.js"></script> <!-- Include your script.js file -->
+    
+    </body>
+</html>

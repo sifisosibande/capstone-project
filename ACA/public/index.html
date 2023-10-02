@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login - Diabetes-Friendly Food App</title>
+  
+
+</head>
+
+<style>
+    body {
+        background-image: url('Food3.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Diabetes-Friendly Food App</h1>
+        <nav>
+            <ul>
+                <!-- <li><a href="home.html">Home</a></li> -->
+                <!-- <li><a href="food.html">Food Recommendations</a></li>
+                <li><a href="about.html">About Us</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="login-section">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input class="login-input" type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input class="login-input" type="password" id="password" name="password" required><br>
+                <button onclick="location.href = 'home.html';" class="login-button" type="submit">Log In</button>
+           
+            </form>
+
+            <h2>Register</h2>
+    <form id="registrationForm">
+        <label for="registerUsername">Username:</label>
+        <input class="login-input" type="text" id="registerUsername" name="registerUsername" required>
+        <br>
+        <label for="registerPassword">Password:</label>
+        <input class="login-input" type="password" id="registerPassword" name="registerPassword" required>
+        <br>
+        <label for="registerEmail">Email:</label>
+        <input class="login-input" type="email" id="registerEmail" name="registerEmail" required>
+        <br>
+        <button class="login-button" type="submit">Register</button>
+    </form>
+
+        </section>
+    </main>
+    <!-- <footer>
+        <p>&copy; 2023 Diabetes-Friendly Food App</p>
+    </footer> -->
+
+    <script src="script.js"></script>
+</body>
+</html>
