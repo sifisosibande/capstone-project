@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: right;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        #content {
+            margin: 20px;
+        }
+
+        #patient-details, #recommended-food {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="http://localhost:3000/index.html">Log Out</a></li>
+            <li><a href="http://localhost:3000/home.html">Home</a></li>
+            <li><a href="http://127.0.0.1:5000/food">Food Recommendations</a></li>
+        </ul>
+    </header>
+    <h1>NutriPal Meal Plan</h1>
+    <div id="content">
+        <div id="patient-details">
+            <!-- Patient's details will be displayed here -->
+        </div>
+        <div id="recommended-food">
+            <!-- Recommended food table will be displayed here -->
+        </div>
+        <button id="sendEmailButton">Send Meal Plan via Email</button>
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the patient's details and recommended food from localStorage
+            const patientDetails = JSON.parse(localStorage.getItem('userData'));
+            const recommendedFood = JSON.parse(localStorage.getItem('recommendedFood'));
+
+            // Display the patient's details
+            const patientDetailsElement = document.getElementById('patient-details');
+            patientDetailsElement.innerHTML = `
+                <h2>Patient's Details</h2>
+                <p><strong>Name:</strong> ${patientDetails.name}</p>
+                <p><strong>Diabetic Type:</strong> ${patientDetails.diabeticType}</p>
+                <p><strong>Age:</strong> ${patientDetails.age}</p>
+                <p><strong>Allergies:</strong> ${patientDetails.allergies}</p>
+            `;
+
+            // Display the recommended food as a table
+            const recommendedFoodElement = document.getElementById('recommended-food');
+            recommendedFoodElement.innerHTML = `
+                <h2>Recommended Food</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Food Name</th>
+                            <th>Veg/Non-Veg</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${recommendedFood.map(food => `
+                            <tr>
+                                <td>${food.Name}</td>
+                                <td>${food.Veg_Non}</td>
+                                <td>${food.Describe}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        });
+    </script>
+</body>
+</html>
+
+

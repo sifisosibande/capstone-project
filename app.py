@@ -155,6 +155,8 @@ def Get_Recommendations(title):
 
     return result.head()
 
+
+
 @app.route('/food')
 def food():
     return render_template('food.html')
@@ -206,6 +208,11 @@ def collaborative_filtering_recommendation_api():
     recommendations = Get_Recommendations(food_name)
     
     return jsonify(recommendations.to_dict(orient='records'))
+
+@app.route('/meal_plan_display')
+def display_meal_plan():
+    # You can pass any necessary data to your template here
+    return render_template('meal_plan_display.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

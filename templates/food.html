@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Food Recommendation System</title>
-    <link rel="stylesheet" href="http://127.0.0.1:57935/ACA/public/styles.css">
+    <link rel="stylesheet" href="http://localhost:3000/styles.css">
 
     <style>
         /* Reset some default styles for consistency */
@@ -13,13 +13,13 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-image: url('http://127.0.0.1:57935/ACA/public/Food2.jpg');
+            background-image: url('http://localhost:3000/Food2.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
         main {
-            background-image: url('http://127.0.0.1:57935/ACA/public/Food2.jpg');
+            background-image: url('http://localhost:3000/Food2.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -172,8 +172,8 @@
     <div class="container">
     <header>
         <ul>
-            <li><a href="http://127.0.0.1:57935/ACA/public/index.html">Log Out</a></li>
-            <li><a href="http://127.0.0.1:57935/ACA/public/home.html">Home</a></li>
+            <li><a href="http://localhost:3000/home.html">Log Out</a></li>
+            <li><a href="http://localhost:3000/home.html">Home</a></li>
             <li><a href="http://127.0.0.1:5000/food">Food Recommendations</a></li>
         </ul>
     </header>
@@ -228,7 +228,7 @@
     </main>
 
     <footer>
-        &copy; 2023 Food Recommendation System
+        &copy; 2023 NutriPal
     </footer>
 </div>
 
@@ -262,11 +262,28 @@
                 recommendedFoods.appendChild(listItem);
             });
         }
+
+        // Retrieve the patient's details from the form
+        const patientDetails = {
+            name: document.getElementById('name').value,
+            diabeticType: document.getElementById('diabetic-type').value,
+            age: document.getElementById('age').value,
+            allergies: document.getElementById('allergies').value,
+        };
+
+        // Save patient details and recommended food to localStorage
+        localStorage.setItem('userData', JSON.stringify(patientDetails));
+        localStorage.setItem('recommendedFood', JSON.stringify(data)); // Saving recommended food data
+
+// Redirect to the Meal Plan display page
+window.location.href = '/meal_plan_display';
+
     })
     .catch(error => {
         console.error('Error:', error);
     });
 });
+
 
         // Sample list of food names
         const foodNames = [
@@ -721,6 +738,7 @@ const itemsPerPage = 10; // Number of items to display per page
                 });
             }
         }
+        
     </script>
 </body>
 </html>

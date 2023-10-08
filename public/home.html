@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Diabetes-Friendly Food App</title>
+
+</head>
+
+<style>
+    body {
+        background-image: url('Food1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+    }
+        /* Style the introductory text */
+        p {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333; /* Change the text color to dark gray */
+    }
+
+    /* Style the "Show Recipes" button */
+    #showRecipesButton {
+        padding: 10px 20px;
+        background-color: #007BFF; /* Blue color for the button */
+        color: #fff; /* White text color */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    /* Style the button on hover */
+    #showRecipesButton:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Style the recipe links container with white background */
+    #recipeLinksContainer {
+        background-color: #fff; /* White background color */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        margin-top: 10px;
+    }
+
+    /* Style the recipe links */
+    #recipeLinks a {
+        display: block;
+        margin-bottom: 5px;
+        text-decoration: none;
+        color: #007BFF; /* Blue color for links */
+    }
+
+    /* Style the recipe links on hover */
+    #recipeLinks a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Diabetes-Friendly Food App</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Log out</a></li>
+                <!-- <li><a href="home.html">Home</a></li> -->
+                <li><a href="http://127.0.0.1:5000/food">Food Recommendations</a></li>
+
+
+                <li><a href="about.html">About Us</a></li>
+                <link rel="stylesheet" href="style.css">
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>Welcome to NutriPal!</h2>
+            <p>Discover diabetes-friendly food options and make informed choices for a healthier lifestyle.</p>
+        </section>
+        <section class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Personalized food recommendations</li>
+                <li>Nutritional information for each food item</li>
+                <li>Recipe ideas for balanced meals</li>
+                <li>Track and manage your meals</li>
+            </ul>
+        </section>
+        
+        <p>This is the home page for authenticated users.</p>
+        <div id="recipeLinksContainer">
+            <p>Find recipes, articles, and healthy living tips for diabetic patients, all in one place.</p>
+            <button id="showRecipesButton">Show</button>
+            <div id="recipeLinks" style="display: none;">
+                <a href="https://www.allrecipes.com/recipes/739/healthy-recipes/diabetic/">Diabetic Recipes</a>
+                <a href="https://www.cdc.gov/diabetes/library/features/living-well-with-diabetes.html">Living Well with Diabetes</a>
+                <a href="https://www.heart.org/en/health-topics/diabetes/prevention--treatment-of-diabetes/living-healthy-with-diabetes">Living Healthy with Diabetes</a>
+            </div>
+        </div>
+        
+        
+
+    
+        <script>
+    document.getElementById('showRecipesButton').addEventListener('click', function() {
+        var recipeLinks = document.getElementById('recipeLinks');
+        if (recipeLinks.style.display === 'none' || recipeLinks.style.display === '') {
+            recipeLinks.style.display = 'block';
+        } else {
+            recipeLinks.style.display = 'none';
+        }
+    });
+</script>
+    </main>
+    <footer>
+        <p>&copy; 2023 NutriPal</p>
+    </footer>
+</body>
+</html>
+
