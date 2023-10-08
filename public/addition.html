@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Resources</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header li {
+            margin-left: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style the icons */
+        .fa-sign-out-alt, .fa-home, .fa-utensils, .fa-book {
+            margin-right: 5px;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        #recipeLinksContainer {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #showRecipesButton {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #recipeLinks {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #recipeLinks a {
+            display: block;
+            margin-bottom: 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        #recipeLinks a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="https://nutripal.onrender.com/index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            <li><a href="https://nutripal.onrender.com/home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:5000/food"><i class="fas fa-utensils"></i> Food Recommendations</a></li>
+            <li><a href="http://127.0.0.1:5000/meal_plan_display"><i class="fas fa-book"></i> Meal Plan</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div id="recipeLinksContainer">
+            <h1>Explore Diabetes Resources</h1>
+            <p>Find a variety of resources to help you manage diabetes and lead a healthy life.</p>
+            <button id="showRecipesButton">Show Resources</button>
+            <div id="recipeLinks">
+                <a href="https://www.allrecipes.com/recipes/739/healthy-recipes/diabetic/">Diabetic Recipes</a>
+                <a href="https://www.cdc.gov/diabetes/library/features/living-well-with-diabetes.html">Living Well with Diabetes</a>
+                <a href="https://www.heart.org/en/health-topics/diabetes/prevention--treatment-of-diabetes/living-healthy-with-diabetes">Living Healthy with Diabetes</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 NutriPal</p>
+    </footer>
+    <script>
+        document.getElementById('showRecipesButton').addEventListener('click', function() {
+            var recipeLinks = document.getElementById('recipeLinks');
+            if (recipeLinks.style.display === 'none' || recipeLinks.style.display === '') {
+                recipeLinks.style.display = 'block';
+            } else {
+                recipeLinks.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
