@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Plan</title>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         body {
@@ -61,14 +65,58 @@
         th {
             background-color: #f2f2f2;
         }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end; /* Align links to the right */
+            align-items: center; /* Vertically center links */
+        }
+
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header li {
+            margin-left: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center; /* Align text and icon vertically */
+        }
+
+        /* Style the icons */
+        .fa-sign-out-alt, .fa-home, .fa-utensils {
+            margin-right: 5px;
+        }
+
+        /* Change the color of links on hover */
+        header a:hover {
+            color: #e5e5e5;
+        }
     </style>
 </head>
 <body>
     <header>
         <ul>
-            <li><a href="http://localhost:3000/index.html">Log Out</a></li>
-            <li><a href="http://localhost:3000/home.html">Home</a></li>
-            <li><a href="http://127.0.0.1:5000/food">Food Recommendations</a></li>
+            <li><a href="https://nutripal.onrender.com/index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+            <li><a href="https://nutripal.onrender.com/home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="http://127.0.0.1:5000/food"><i class="fas fa-utensils"></i> Food Recommendations</a></li>
         </ul>
     </header>
     <h1>NutriPal Meal Plan</h1>

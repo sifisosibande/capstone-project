@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Diabetes-Friendly Food App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes-Friendly Food App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
@@ -61,6 +65,60 @@
     #recipeLinks a:hover {
         text-decoration: underline; /* Underline on hover */
     }
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between; /* Align items to the ends */
+            align-items: center; /* Vertically center items */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav li {
+            margin-left: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Style the icons */
+        .fa-sign-out-alt {
+            margin-right: 5px;
+        }
+
+        .fa-utensils {
+            margin-right: 5px;
+        }
+
+        .fa-info-circle {
+            margin-right: 5px;
+        }
+
+        /* Change the color of links on hover */
+        header a:hover {
+            color: #e5e5e5;
+        }
 </style>
 
 <body>
@@ -68,13 +126,9 @@
         <h1>Diabetes-Friendly Food App</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Log out</a></li>
-                <!-- <li><a href="home.html">Home</a></li> -->
-                <li><a href="http://127.0.0.1:5000/food">Food Recommendations</a></li>
-
-
-                <li><a href="about.html">About Us</a></li>
-                <link rel="stylesheet" href="style.css">
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                <li><a href="http://127.0.0.1:5000/food"><i class="fas fa-utensils"></i> Food Recommendations</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
             </ul>
         </nav>
     </header>
