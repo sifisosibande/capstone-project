@@ -11,7 +11,14 @@ import string
 
 app = Flask(__name__, template_folder='templates')
 
+# app routes
+@app.route('/')
+def home():
+    return render_template('food.html')
 
+@app.route('/plan-meal')
+def plan_meal():
+    return render_template('meal_plan_display.html')
 
 
 # Load your data and perform data preprocessing here
@@ -138,7 +145,9 @@ print(matching_foods)
 
 # The main recommender code!
 def Get_Recommendations(title):
+    print('DF:',df['Food_ID'])
     user = df[df['Name'] == title]
+    print('INT:',user['Food_ID'])
     user_index = np.where(ratings.index == int(user['Food_ID']))[0][0]
     user_ratings = csr_rating_matrix[user_index]
 
@@ -213,6 +222,16 @@ def collaborative_filtering_recommendation_api():
 def display_meal_plan():
     # You can pass any necessary data to your template here
     return render_template('meal_plan_display.html')
+
+
+
+@app.get('/food-names')
+def get_food_names():
+    food_names = df['Name']
+    return {
+        'names': food_names.tolist(),
+        'status': 'Food Names'
+    }
 
 if __name__ == '__main__':
     app.run(debug=True)

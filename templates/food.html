@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Food Recommendation System</title>
     <link rel="stylesheet" href="https://nutripal.onrender.com/styles.css">
@@ -10,7 +11,11 @@
 
     <style>
         /* Reset some default styles for consistency */
-        body, h1, h2, ul, p {
+        body,
+        h1,
+        h2,
+        ul,
+        p {
             margin: 0;
             padding: 0;
         }
@@ -22,22 +27,30 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
+
         main {
             background-image: url('https://nutripal.onrender.com/Food2.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            padding: 20px; /* Add padding to ensure content is visible on top of the image */
+            padding: 20px;
+            /* Add padding to ensure content is visible on top of the image */
 
-            
-        }main h1 {
-            color: #007BFF; /* Adjust the title color */
-            text-align: center; /* Center-align the title */
-            font-size: 32px; /* Increase the title font size */
+
+        }
+
+        main h1 {
+            color: #007BFF;
+            /* Adjust the title color */
+            text-align: center;
+            /* Center-align the title */
+            font-size: 32px;
+            /* Increase the title font size */
         }
 
         main label {
-            color: #0c0d0e; /* Adjust label color */
+            color: #0c0d0e;
+            /* Adjust label color */
         }
 
 
@@ -170,6 +183,7 @@
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -182,8 +196,10 @@
             color: white;
             padding: 10px;
             display: flex;
-            justify-content: flex-end; /* Align links to the right */
-            align-items: center; /* Vertically center links */
+            justify-content: flex-end;
+            /* Align links to the right */
+            align-items: center;
+            /* Vertically center links */
         }
 
         header ul {
@@ -216,532 +232,143 @@
         header a:hover {
             color: #e5e5e5;
         }
-        
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <ul>
-                <li><a href="https://nutripal.onrender.com/index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                <li><a href="https://nutripal.onrender.com/index.html"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                </li>
                 <li><a href="https://nutripal.onrender.com/home.html"><i class="fas fa-home"></i> Home</a></li>
             </ul>
         </header>
 
-    <main>
-        <h1>Food Recommendation</h1>
-        <label for="food-name">Enter your food preference:</label>
-        <input type="text" id="searchInput" oninput="searchFood()" required>
-        <div id="searchResults"></div>
-        <!-- Add pagination elements -->
-        <div id="pagination">
-            <button id="prevPage">Previous Page</button>
-            <button id="nextPage">Next Page</button>
-            <span id="pageInfo">Page 1 of 1</span>
-        </div>
-        <form id="recommendation-form">
+        <main>
+            <h1>Food Recommendation</h1>
+            <label for="food-name">Enter your food preference:</label>
+            <input type="text" id="searchInput" oninput="searchFood()" required>
+            <div id="searchResults"></div>
+            <!-- Add pagination elements -->
+            <div id="pagination">
+                <button id="prevPage">Previous Page</button>
+                <button id="nextPage">Next Page</button>
+                <span id="pageInfo">Page 1 of 1</span>
+            </div>
+            <form id="recommendation-form">
 
                 <!-- Diabetic Type selection -->
-            <label for="diabetic-type">Diabetic Type:</label>
-            <select id="diabetic-type">
-                <option value="Type 1">Type 1</option>
-                <option value="Type 2">Type 2</option>
-            </select>
+                <label for="diabetic-type">Diabetic Type:</label>
+                <select id="diabetic-type">
+                    <option value="Type 1">Type 1</option>
+                    <option value="Type 2">Type 2</option>
+                </select>
 
-            <!-- Age input -->
-            <label for="age">Age:</label>
-            <input type="number" id="age" required>
-            <label for="Patient Name">Patient Name:</label>
-            <input type="text" id="name" required>
+                <!-- Age input -->
+                <label for="age">Age:</label>
+                <input type="number" id="age" required>
+                <label for="Patient Name">Patient Name:</label>
+                <input type="text" id="name" required>
 
-    <!-- Allergies dropdown with common options -->
-    <label for="allergies">Allergies:</label>
-    <select id="allergies">
-        <option value="None">None</option>
-        <option value="Peanuts">Peanuts</option>
-        <option value="Tree Nuts">Tree Nuts</option>
-        <option value="Milk">Milk</option>
-        <option value="Eggs">Eggs</option>
-        <option value="Soy">Soy</option>
-        <option value="Wheat">Wheat</option>
-        <option value="Fish">Fish</option>
-        <option value="Shellfish">Shellfish</option>
-    </select>
-    <label for="selected-food">Selected Food:</label>
-    <input type="text" id="selected-food" readonly>
-    <button type="submit" id="recommend-button" disabled>Recommend</button>
-        </form>
+                <!-- Allergies dropdown with common options -->
+                <label for="allergies">Allergies:</label>
+                <select id="allergies">
+                    <option value="None">None</option>
+                    <option value="Peanuts">Peanuts</option>
+                    <option value="Tree Nuts">Tree Nuts</option>
+                    <option value="Milk">Milk</option>
+                    <option value="Eggs">Eggs</option>
+                    <option value="Soy">Soy</option>
+                    <option value="Wheat">Wheat</option>
+                    <option value="Fish">Fish</option>
+                    <option value="Shellfish">Shellfish</option>
+                </select>
+                <label for="selected-food">Selected Food:</label>
+                <input type="text" id="selected-food"> 
+                <button type="submit" id="recommend-button" disabled>Recommend</button>
+            </form>
 
 
 
-        <h2>Recommended Foods:</h2>
-        <ul id="recommended-foods"></ul>
-    </main>
+            <h2>Recommended Foods:</h2>
+            <ul id="recommended-foods"></ul>
+        </main>
 
-    <footer>
-        &copy; 2023 NutriPal
-    </footer>
-</div>
+        <footer>
+            &copy; 2023 NutriPal
+        </footer>
+    </div>
 
     <script>
         let selectedFood = ''; // Variable to store the selected food
+        let foodNames = []
 
-        document.getElementById('recommendation-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const foodName = selectedFood;
-
-    // Make an AJAX request to your Flask API for collaborative filtering
-    fetch('/collaborative-filtering-recommendation', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ food_name: foodName })
-    })
-    .then(response => response.json())
-    .then(data => {
-        const recommendedFoods = document.getElementById('recommended-foods');
-        recommendedFoods.innerHTML = '';
-
-        if (data.length === 0) {
-            recommendedFoods.innerHTML = '<li>No recommendations found.</li>';
-        } else {
-            data.forEach(food => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `<strong>${food.Name}</strong>: ${food.Describe}`;
-                recommendedFoods.appendChild(listItem);
-            });
+        const getFetchFoodName = () => {
+            fetch('/food-names', {
+                method: 'GET'
+            }).then(res => res.json()).then(names => {
+                console.log(names);
+                foodNames = names.names;
+            })
         }
 
-        // Retrieve the patient's details from the form
-        const patientDetails = {
-            name: document.getElementById('name').value,
-            diabeticType: document.getElementById('diabetic-type').value,
-            age: document.getElementById('age').value,
-            allergies: document.getElementById('allergies').value,
-        };
+        getFetchFoodName();
 
-        // Save patient details and recommended food to localStorage
-        localStorage.setItem('userData', JSON.stringify(patientDetails));
-        localStorage.setItem('recommendedFood', JSON.stringify(data)); // Saving recommended food data
+        document.getElementById('recommendation-form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-// Redirect to the Meal Plan display page
-window.location.href = '/meal_plan_display';
+            const foodName = selectedFood;
 
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
+            // Make an AJAX request to your Flask API for collaborative filtering
+            fetch('/collaborative-filtering-recommendation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ food_name: foodName })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const recommendedFoods = document.getElementById('recommended-foods');
+                    recommendedFoods.innerHTML = '';
+
+                    if (data.length === 0) {
+                        recommendedFoods.innerHTML = '<li>No recommendations found.</li>';
+                    } else {
+                        data.forEach(food => {
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `<strong>${food.Name}</strong>: ${food.Describe}`;
+                            recommendedFoods.appendChild(listItem);
+                        });
+                    }
+
+                    // Retrieve the patient's details from the form
+                    const patientDetails = {
+                        name: document.getElementById('name').value,
+                        diabeticType: document.getElementById('diabetic-type').value,
+                        age: document.getElementById('age').value,
+                        allergies: document.getElementById('allergies').value,
+                    };
+
+                    // Save patient details and recommended food to localStorage
+                    localStorage.setItem('userData', JSON.stringify(patientDetails));
+                    localStorage.setItem('recommendedFood', JSON.stringify(data)); // Saving recommended food data
+
+                    // Redirect to the Meal Plan display page
+                    window.location.href = '/meal_plan_display';
+
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
 
 
         // Sample list of food names
-        const foodNames = [
-    "summer squash salad",
-    "chicken minced salad",
-    "sweet chilli almonds",
-    "tricolour salad",
-    "christmas cake",
-    "japanese curry arancini with barley salsa",
-    "chocolate nero cookies",
-    "lamb and chargrilled bell pepper soup",
-    "cream of almond soup",
-    "broccoli and almond soup",
-    "coconut lime quinoa salad",
-    "lemon honey glazed sous vide corn on the cob",
-    "watermelon and strawberry smoothie",
-    "peach, raspberry and nuts smoothie",
-    "almond and cranberry poha",
-    "almond and raw banana galawat",
-    "baked namakpara with roasted almond dip",
-    "grilled almond barfi",
-    "baked shankarpali",
-    "baked multigrain murukku",
-    "apple rabdi",
-    "baked namak para",
-    "dates and nuts ladoo",
-    "green lentil dessert fudge",
-    "cashew nut cookies",
-    "almond pearls",
-    "hawaiin papaya salad",
-    "vegetable som tam salad",
-    "spinach and feta crepes",
-    "couscous with ratatouille - tangy tomato sauce",
-    "baked almond kofta",
-    "almond and amaranth ladoo",
-    "moong dal kiwi coconut soup",
-    "mixed berry & banana smoothie",
-    "banana walnut smoothie",
-    "spicy watermelon soup",
-    "red rice poha",
-    "mixed salad with lotus root",
-    "sweet potato and quinoa bowl",
-    "corn and raw mango salad",
-    "khichdi",
-    "sugar free modak",
-    "beetroot modak",
-    "andhra pan fried pomfret",
-    "ghee roast chicken dosa quesadilla",
-    "steam bunny chicken bao",
-    "meat lovers pizza",
-    "almond and chicken momos (without shell)",
-    "christmas tree pizza",
-    "french pork chop",
-    "christmas chocolate fudge cookies",
-    "chicken parmigiana with tomato sauce",
-    "chocolate appe",
-    "sous-vide salmon tikka",
-    "filo pizza",
-    "chocolate samosa",
-    "fish with jamun sauce",
-    "dahi lasooni chicken",
-    "pesto fish kebabs",
-    "caramelized sesame smoked almonds",
-    "crunchy vegetable dal sattu croquettes",
-    "active charcoal modak",
-    "flax seed and beetroot modak",
-    "chocolate prunes gujiyas",
-    "almond white chocolate gujiya",
-    "betel nut popsicle",
-    "clotted cottage cheese croquettes",
-    "gajar tart",
-    "banana and maple ice lollies",
-    "shepherds salad (tamatar-kheera salaad)",
-    "carrot ginger soup",
-    "dark night",
-    "hot chocolate",
-    "slow cooked spiced sangria",
-    "detox haldi tea",
-    "holi special ice tea thandai",
-    "grilled lemon margarita",
-    "spanish artichoke and spinach dip",
-    "beetroot and green apple soup",
-    "baba budan no. 7",
-    "fruit infused tea",
-    "soya milk",
-    "spiced coffee",
-    "filter coffee",
-    "garlic and pinenut soup with burnt butter essence",
-    "roast turkey with cranberry sauce",
-    "roasted spring chicken with root veggies",
-    "peri peri chicken satay",
-    "chicken popcorn",
-    "half roast chicken",
-    "chicken biryani",
-    "chicken farcha",
-    "buldak (hot and spicy chicken)",
-    "chicken sukka",
-    "steamed chicken roulade",
-    "methi chicken masala",
-    "restaurant style fried chicken",
-    "chicken potli",
-    "spicy chicken masala",
-    "spicy chicken curry",
-    "crispy herb chicken",
-    "dahi chicken",
-    "amritsari chicken masala",
-    "chilli chicken",
-    "chicken tenders",
-    "chicken nimbu dhaniya shorba",
-    "garlic soya chicken",
-    "cauliflower and chicken biryani",
-    "chicken quinoa biryani",
-    "chicken and mushroom lasagna",
-    "plum and cherry roasted chicken",
-    "chicken roulade",
-    "sticky rum chicken wings",
-    "chicken dragon",
-    "chicken palwal",
-    "pan seared thigh of chicken",
-    "chicken in mahalak sauce",
-    "grilled kasundi honey chicken with sweet potato mash",
-    "chicken dong style",
-    "microwave tandoori chicken",
-    "methi malai cranberry chicken",
-    "southern fried chicken tenders",
-    "thai style chicken tikka",
-    "chicken gilafi kebab",
-    "cheese chicken kebabs",
-    "andhra crab meat masala",
-    "cajun spiced turkey wrapped with bacon",
-    "thai lamb balls",
-    "oyster lamb",
-    "chicken shami kebab",
-    "balti meat",
-    "coffee marinated mutton chops",
-    "sali boti (parsi meat dish)",
-    "braised lamb shanks",
-    "bengali lamb curry",
-    "malabari fish curry",
-    "japanese fish stew",
-    "malabar fish curry",
-    "surmai curry with lobster butter rice",
-    "seared salmon in tabasco butter",
-    "risotto lobster with parmesan egg pancake, confit tomatoes and coral tuille",
-    "fish skewers with coriander and red wine vinegar dressing",
-    "seafood rock filler",
-    "shrimp & cilantro ceviche",
-    "saewoo bokumbop (shrimp fried rice)",
-    "thai prawn curry & baked rice",
-    "bihari fish curry",
-    "curry fish fingers",
-    "prawn and litchi salad",
-    "kerala fish curry",
-    "fish andlouse",
-    "prawn fried rice",
-    "damdama fish curry",
-    "fish with white sauce",
-    "chilli fish",
-    "fish ambultiyal",
-    "chettinad fish fry",
-    "fish moilee",
-    "batter fish",
-    "fish salan",
-    "spanish fish fry",
-    "prawn potato soup",
-    "red rice vermicelli kheer",
-    "green cucumber shots",
-    "thai pineapple rice",
-    "green asparagus risotto",
-    "veg fried rice",
-    "egg and garlic fried rice",
-    "curd rice",
-    "fried rice with soya chunks",
-    "corn pulao",
-    "zucchini methi pulao",
-    "lemon rice",
-    "kale channe ki biryani",
-    "chicken paella",
-    "thai fish curry",
-    "vegetable pulao",
-    "oats shallots pulao",
-    "shiitake fried rice with water chestnuts",
-    "lotus leaf wrapped fried rice",
-    "vegetable biryani",
-    "avial with red rice",
-    "rice in lamb stock",
-    "vegetable bruschetta",
-    "red wine braised mushroom flatbread",
-    "strawberry & pistachio breton tart",
-    "tricolour pizza",
-    "instant rava dosa",
-    "easy bread poha",
-    "bread chana basket",
-    "spaghetti with clams & crispy bread crumbs",
-    "kasha bread",
-    "egg paratha",
-    "egg and cheddar cheese sandwich",
-    "egg in a blanket",
-    "bread dahi vada",
-    "cheese and avocado parantha",
-    "bread with tomatoes and olives",
-    "lemon poppy seed cake",
-    "chocolate kaju katli",
-    "mix fruit laccha rabri tortilla crunch",
-    "pista chocolate & mandarin",
-    "banana and chia tea cake",
-    "chocolate and almond rum ball",
-    "lemon sushi cake",
-    "chocolate doughnut",
-    "spiced almond banana jaggery cake",
-    "fennel scented sweet banana fritters",
-    "camel milk cake tart",
-    "quinoa coconut crumble custard",
-    "lamb barley pot",
-    "al hachi chicken",
-    "berry parfait hazelnut white chocolate sable",
-    "badam papite ke kebab with pineapple salsa",
-    "mixed vegetable soup",
-    "duo of chocolate and strawberry",
-    "mustard-parmesan whole roasted cauliflower",
-    "hassel back sweet potatoes",
-    "mother christmas cake",
-    "matcha tea macarons",
-    "amaranthus granola with lemon yogurt, berries and marigold",
-    "chocolate fudge cookies",
-    "veg summer rolls",
-    "eggless vanilla cake",
-    "sweet potato pie",
-    "wok tossed asparagus in mild garlic sauce",
-    "cinnamon oatmeal pancakes",
-    "chocolate chip cheesecake",
-    "chocolate lava cake",
-    "eggless coffee cupcakes",
-    "chicken in white wine",
-    "apple and walnut cake",
-    "gluten free almond cake",
-    "cinnamon star cookies",
-    "whole wheat cake",
-    "plum cake",
-    "double chocolate easter cookies",
-    "holi special malai kofta",
-    "homemade gulab jamun",
-    "lamb rogan josh",
-    "fish curry",
-    "rice kheer",
-    "assorted rice kheer sushi",
-    "jalebi with fennel yogurt pudding",
-    "broccoli souffle",
-    "christmas dry fruit cake",
-    "microwave chicken steak",
-    "cheese and ham roll",
-    "vegetable manchurian",
-    "jerk chicken",
-    "lemon poppy seed cake",
-    "steam bunny chicken bao",
-    "double chocolate easter cookies",
-    "orange quinoa sevaiyan",
-    "spicy creamy kadai chicken",
-    "apple kheer",
-    "ragi oats ladoo (laddu)",
-    "lamb korma",
-    "ragi coconut ladoo (laddu)",
-    "quick chicken curry",
-    "chicken shaami kebab",
-    "chicken masala",
-    "holi special bhang pakode",
-    "kuttu atta pizza",
-    "arbi kofta with mint yogurt dip",
-    "puffed rice squares",
-    "red velvet banana pudding",
-    "baked wild berry cheesecake",
-    "spiced orange valencia cake",
-    "jalapeno cheese fingers",
-    "californian breakfast benedict",
-    "chocolate marquise",
-    "corn & jalapeno poppers",
-    "banana phirni tartlets with fresh strawberries",
-    "mexican pizza",
-    "apple and pear cake",
-    "microwave chocolate cake",
-    "white chocolate and lemon pastry",
-    "mixed beans salad",
-    "baked raw banana samosa",
-    "coconut mango oatmeal with cinnamon hint",
-    "fruit cube salad",
-    "veg hakka noodles",
-    "strawberry quinoa pancakes",
-    "spinach & banana pancakes",
-    "french onion grilled cheese",
-    "pasta in cheese sauce",
-    "deviled scotch egg",
-    "amritsari fish",
-    "butter chicken",
-    "chicken razala",
-    "chicken tikka",
-    "chicken tikka masala",
-    "mushroom matar",
-    "tandoori chicken",
-    "tandoori fish tikka",
-    "chettinadu chicken",
-    "chicken 65",
-    "kolim / jawla",
-    "black rice",
-    "brown rice",
-    "koldil chicken",
-    "red rice",
-    "rice",
-    "sunga pork",
-    "banana chips",
-    "bhurji- egg",
-    "flattened rice / poha",
-    "puffed rice",
-    "Miso-Butter Roast Chicken With Acorn Squash Panzanella",
-    "Honeydew Salad with Ginger Dressing and Peanuts",
-    "Kimchi and Miso Noodle Soup",
-    "Spicy Korean Steak",
-    "French Spiced Bread",
-    "Quinoa Bowl and Berries",
-    "Shawarma-Spiced Braised Leg of Lamb",
-    "Roast Pork Tenderloin with Carrot Romesco",
-    "Ricotta Gnocchi with Asparagus, Peas, and Morels",
-    "Crispy Pakora",
-    "Lamb Tikka",
-    "Grilled Sweet Prawn",
-    "Pho Tai rare beef",
-    "Summer Rolls",
-    "Spice Chicken Baugette",
-    "Bean Curd Rolls",
-    "Pho Chay Soup",
-    "Pho Ga Chicken",
-    "Chicken Sweet Corn Soup",
-    "Thai Spareribs",
-    "Frenched Green Beans",
-    "Lemony Crab Salad with Baby Greens",
-    "Mushroom Manchruian",
-    "Biryani",
-    "Tandoori Chicken",
-    "Shrimp Olivier",
-    "Potato Casserole",
-    "Thyme-Roasted Sweet Potatoes",
-    "Noodle Curry",
-    "Grill Lemon grass Pork baguette",
-    "Sukuti Chatpate",
-    "Cheese Naan",
-    "Mushroom Rice",
-    "Bringle Alo",
-    "Mutar Paneer",
-    "Cucumber and Radish Salad",
-    "Channa Masala",
-    "Saag Alo",
-    "Alo Tama Bodi",
-    "Tarka Daal",
-    "Jeera Alu",
-    "Nepali Chicken Curry",
-    "Lamb Shashlik",
-    "Hyakula",
-    "Alo Achar",
-    "Chicken Momo",
-    "Black-Bean Burgers",
-    "Parmesan Toasts",
-    "Rice with Soy-Glazed Bonito Flakes and Sesame Seeds",
-    "Shirazi Salad",
-    "Sesame Noodles with Chili Oil and Scallions",
-    "Thai Green Curry",
-    "Ground Pork Menudo",
-    "Bao Bun",
-    "Garlic Naan",
-    "Egg Curry with Tomatoes and Cilantro",
-    "Kimchi Bokumbab",
-    "Korean fried Chicken",
-    "Prawn kastu Curry",
-    "Beef Bibimbab",
-    "Sweet and Sour Chicken Fried Rice",
-    "Sea Food Soup",
-    "Pad Thai",
-    "Spicy Kimchi Tofu Stew",
-    "Slow-Roasted Pork",
-    "Pico de Gallo Verde",
-    "Pineapple-Coconut Rice",
-    "Lamb and Green Squash Dumplings",
-    "Crispy Tofu Balls",
-    "Grilled Chicken with Almond and Garlic Sauce",
-    "Parmesan Cauliflower and Parsley Salad",
-    "Vietnamese Chicken Salad",
-    "Eggplant and Beef Stir-Fry",
-    "Stir-Fried Lettuces With Crispy Shallots",
-    "Chicken and Dumplings",
-    "Asian Salmon Bowl with Lime Drizzle",
-    "Pasta with Garlic-Scape Pesto",
-    "Pico de Gallo",
-    "Basmati Rice with Summer Vegetable Salad",
-    "Fresh Corn Tortillas",
-    "Quinoa Tabbouleh",
-    "Grilled Clams With Herb Butter",
-    "Rajas Poblanas",
-    "Braised Beef Short Ribs",
-    "Fig and Sesame Tart with Cardamom Orange Cream",
-    "Rouille",
-    "Kimchi Toast",
-    "Tacos de Gobernador (Shrimp, Poblano, and Cheese Tacos)",
-    "Melted Broccoli Pasta With Capers and Anchovies",
-    "Lemon-Ginger Cake with Pistachios",
-    "Rosemary Roasted Vegetables"
-];
 
 
-const itemsPerPage = 10; // Number of items to display per page
+        const itemsPerPage = 10; // Number of items to display per page
         let currentPage = 1; // Initialize the current page
 
         function selectFood(food) {
@@ -753,7 +380,7 @@ const itemsPerPage = 10; // Number of items to display per page
         function searchFood() {
             // Get the user's search query
             const query = document.getElementById('searchInput').value.toLowerCase();
-            
+
             // Filter food names that match the query
             const matchingFoods = foodNames.filter(food => food.toLowerCase().includes(query));
 
@@ -771,7 +398,7 @@ const itemsPerPage = 10; // Number of items to display per page
             // Display the matching food names for the current page
             const searchResultsDiv = document.getElementById('searchResults');
             searchResultsDiv.innerHTML = ''; // Clear previous results
-            
+
             if (matchingFoods.length === 0) {
                 searchResultsDiv.innerHTML = 'No matching foods found.';
             } else {
@@ -789,7 +416,8 @@ const itemsPerPage = 10; // Number of items to display per page
                 });
             }
         }
-        
+
     </script>
 </body>
+
 </html>
