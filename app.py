@@ -14,11 +14,31 @@ app = Flask(__name__, template_folder='templates')
 # app routes
 @app.route('/')
 def home():
-    return render_template('food.html')
+    return render_template('home.html')
+
 
 @app.route('/plan-meal')
 def plan_meal():
     return render_template('meal_plan_display.html')
+
+@app.route('/food')
+def food():
+    return render_template('food.html')
+
+@app.route('/additional')
+def additional():
+    return render_template('additional.html')
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+
 
 
 # Load your data and perform data preprocessing here
@@ -166,9 +186,6 @@ def Get_Recommendations(title):
 
 
 
-@app.route('/food')
-def food():
-    return render_template('food.html')
 
 
 @app.route('/food-suggestions', methods=['GET'])
